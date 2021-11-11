@@ -1,0 +1,77 @@
+module.exports = {
+	env: {
+		browser: true,
+		es2021: true,
+	},
+	extends: [
+		'airbnb',
+		'prettier',
+		'plugin:import/errors',
+		'plugin:import/warnings',
+		'plugin:import/typescript',
+		'plugin:jest/recommended',
+		'plugin:react/recommended',
+		'plugin:@typescript-eslint/recommended',
+		'plugin:@typescript-eslint/recommended-requiring-type-checking',
+		'plugin:react/jsx-runtime',
+		'plugin:prettier/recommended',
+	],
+	parser: '@typescript-eslint/parser',
+	parserOptions: {
+		ecmaFeatures: {
+			jsx: true,
+		},
+		ecmaVersion: 12,
+		sourceType: 'module',
+		project: './tsconfig.json',
+		createDefaultProgram: true,
+	},
+	plugins: ['react', '@typescript-eslint', 'import', 'jsx-a11y', 'prettier'],
+	settings: {
+		'import/resolver': {
+			node: {
+				extensions: ['.js', '.jsx', '.ts', '.tsx'],
+				moduleDirectory: ['node_modules', 'src/'],
+			},
+		},
+	},
+	rules: {
+		'import/extensions': [
+			'error',
+			'ignorePackages',
+			{
+				js: 'never',
+				jsx: 'never',
+				ts: 'never',
+				tsx: 'never',
+			},
+		],
+		'import/prefer-default-export': 'off',
+		'jsx-a11y/label-has-associated-control': 'off',
+		'import/no-cycle': 'off',
+		'no-use-before-define': 'off',
+		'no-shadow': 'off',
+		'@typescript-eslint/explicit-module-boundary-types': 'off',
+		'@typescript-eslint/restrict-plus-operands': 'error',
+		'@typescript-eslint/no-unsafe-return': 'off',
+		'@typescript-eslint/no-explicit-any': 'off',
+		'@typescript-eslint/unbound-method': 'off',
+		'@typescript-eslint/no-empty-interface': 'off',
+		'@typescript-eslint/no-unsafe-assignment': 'off',
+		'@typescript-eslint/no-unsafe-member-access': 'off',
+		'@typescript-eslint/no-unsafe-call': 'off',
+		'no-underscore-dangle': 0,
+		'react/jsx-indent-props': 'off',
+		'react/display-name': 0,
+		'react/jsx-props-no-spreading': 0,
+		'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+		'react/jsx-indent': 'off',
+		'react/prop-types': 'off',
+		'prettier/prettier': [
+			'error',
+			{
+				endOfLine: 'auto',
+			},
+		],
+	},
+};
